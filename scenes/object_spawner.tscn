@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfnuksnyuwh5b"]
+
+[ext_resource type="Script" uid="uid://dgukkf0nsavih" path="res://scripts/object_spawner.gd" id="1_fyb6n"]
+
+[node name="ObjectSpawner" type="Node3D"]
+script = ExtResource("1_fyb6n")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]

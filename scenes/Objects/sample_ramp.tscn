@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://db8p0p1fd0x8d"]
+
+[ext_resource type="Script" uid="uid://cnsvh1ybamjeq" path="res://scripts/sample_ramp.gd" id="1_njy0m"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0.200491, 2.79503, 6.49846, -0.00830364, 1, 0)
+script = ExtResource("1_njy0m")
+speed = 15.0

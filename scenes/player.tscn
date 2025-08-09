@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://d20vw6dyu8cnm"]
+
+[ext_resource type="Script" uid="uid://balqspxq41sws" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dk16iyy825nxf" path="res://assets/Player/Dashboard.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dn47wp4rm2erl" path="res://assets/Player/Wheel.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cr4dj0v7kglxu" path="res://assets/Player/DokiCar3rdFront.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://c7dr58a3rd5dg" path="res://assets/Player/DokiCar3rdBack.png" id="5_tuyoq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WheelSprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WheelSprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.610865), Vector3(0, 0, 0), Vector3(0, 0, -0.610865)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
+_data = {
+&"RESET": SubResource("Animation_qlg0r"),
+&"spin": SubResource("Animation_dqkch")
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "spin_3rd_person"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.26573, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smehm"]
+_data = {
+&"RESET": SubResource("Animation_fjrip"),
+&"spin_3rd_person": SubResource("Animation_tuyoq")
+}
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.31134e-07, 3, -1.31134e-07, 0, -1.31134e-07, -3, -3, -1.31134e-07, 5.73206e-15, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dqkch")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75525)
+
+[node name="FirstPersonSprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0351409, 0, 0.000174463)
+texture = ExtResource("2_qlg0r")
+
+[node name="WheelSprite3D" type="Sprite3D" parent="FirstPersonSprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.24582, -3.05396, 2.65149)
+texture = ExtResource("3_qlg0r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FirstPersonSprite3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_tuyoq")
+}
+autoplay = "spin"
+
+[node name="Spinner" type="Node3D" parent="."]
+
+[node name="ThirdPersonFrontSprite3D" type="Sprite3D" parent="Spinner"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.00115497, 0.75, -0.00991529)
+texture = ExtResource("4_qlg0r")
+
+[node name="ThirdPersonBackSprite3D" type="Sprite3D" parent="Spinner"]
+transform = Transform3D(1.00205, 0, 0, 0, 1.00205, 0, 0, 0, 1.00205, -0.000728579, 0.75, -6.64974e-05)
+texture = ExtResource("5_tuyoq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_smehm")
+}
