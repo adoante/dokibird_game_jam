@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3jn7of4om7gn"]
+
+[ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/electric_totem.gd" id="1_rv5vt"]
+[ext_resource type="Texture2D" uid="uid://foib0t183yoq" path="res://assets/Objects/eletric_totem_3.png" id="2_hqcj8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xqx5"]
+
+[node name="Electric Totem 3" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_rv5vt")
+speed = 10.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture = ExtResource("2_hqcj8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2xqx5")

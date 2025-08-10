@@ -3,6 +3,8 @@ extends Node3D
 @export var object_to_spawn: PackedScene
 @export var spawn_interval: float = 1.0  # Seconds
 @export var initial_position: Vector3
+@export var random_z_axis: bool = true
+@export var rotate_by: float = 0.0
 
 var spawn_timer := 0.0
 
@@ -19,5 +21,10 @@ func spawn_object():
 	if object_to_spawn:
 		var instance = object_to_spawn.instantiate()
 		get_tree().current_scene.add_child(instance)
-		var random_z = randf_range(-10.0, 10.0)
-		instance.global_position = Vector3(initial_position.x, initial_position.y, random_z)
+
+		var spawn_pos = initial_position
+		if random_z_axis:
+			spawn_pos.z = randf_range(-10.0, 10.0)
+
+		instance.global_position = spawn_pos
+		instance.global_rotation.y += rotate_by

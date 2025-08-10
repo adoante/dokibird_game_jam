@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://clp8uqvmpf66t"]
+
+[ext_resource type="Texture2D" uid="uid://q2muugwp1do1" path="res://assets/NPCs/NPCCarRedFront.png" id="1_dvd36"]
+[ext_resource type="Script" uid="uid://c6qt67ikqmra0" path="res://scripts/npc_car.gd" id="1_oervq"]
+[ext_resource type="Texture2D" uid="uid://cybs5nm5xkq5k" path="res://assets/NPCs/NPCCarRedBack.png" id="2_oervq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1x86t"]
+size = Vector3(2, 2, 0.2)
+
+[node name="NPCCarRed" type="Area3D"]
+script = ExtResource("1_oervq")
+speed = 12.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)
+shape = SubResource("BoxShape3D_1x86t")
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0, -0.6, 0)
+texture = ExtResource("1_dvd36")
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0.01, -0.6, 0)
+texture = ExtResource("2_oervq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

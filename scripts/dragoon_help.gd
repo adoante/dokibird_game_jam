@@ -34,7 +34,7 @@ func _on_body_entered(body: Node3D) -> void:
 		front.texture = truck_empty_front
 		back.texture = truck_empty_back
 		
-		_spawn_confetti()
+		_spawn_particles()
 
 		var animation_name = animations[randi() % animations.size()]
 		animation_player.play(animation_name)
@@ -42,7 +42,7 @@ func _on_body_entered(body: Node3D) -> void:
 		await animation_player.animation_finished
 		queue_free()
 
-func _spawn_confetti() -> void:
+func _spawn_particles() -> void:
 	var p := particles.instantiate() as GPUParticles3D
 
 	# position at the truck
