@@ -1,14 +1,15 @@
 extends Node3D
+
 @onready var player: CharacterBody3D = $Player
 
-@onready var camera_3d: Camera3D = $Camera3D
-@onready var player_camera_3d: Camera3D = $Player/Camera3D
+@onready var third_person_camera: Camera3D = $Camera3D
+@onready var first_person_camera: Camera3D = $Player/Camera3D
 
 @export var cameras: Array[Camera3D] = []
-var current_index := 0
+var current_index := 1
 
 func _ready():
-	cameras = [camera_3d, player_camera_3d]
+	cameras = [third_person_camera, first_person_camera]
 	
 	if cameras.size() > 0:
 		_activate_camera(current_index)
@@ -27,6 +28,9 @@ func _activate_camera(index: int):
 
 	# Inform player about camera mode
 	if index == 0:
-		player.set_state(player.State.THIRD_PERSON)
+		GameManager.set_powerup_state(GameManager.PowerUpState.LONG_NECK)
 	else:
-		player.set_state(player.State.FIRST_PERSON)
+		GameManager.set_powerup_state(GameManager.PowerUpState.REGULAR)
+		
+func switch_camera(camera: int):
+	_activate_camera(camera)

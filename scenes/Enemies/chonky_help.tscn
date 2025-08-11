@@ -464,6 +464,8 @@ _data = {
 script = ExtResource("1_4mk7o")
 particles = ExtResource("2_7g3yl")
 speed = 10.0
+point_amount = 15.0
+scene_name = "Chonky Help Truck"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)

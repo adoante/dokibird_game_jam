@@ -1,8 +1,10 @@
 extends Area3D
 
 @export var speed := 2.0
-var particles: Array[PackedScene]
+@export var point_amount: float
+@export var scene_name: String
 
+var particles: Array[PackedScene]
 var triggered := false
 
 func _ready() -> void:
@@ -18,6 +20,12 @@ func _on_body_entered(body):
 	
 	if body.name == "Player":
 		triggered = true
+		
+		# update score
+		GameManager.update_score(point_amount)
+		
+		# update hit counts
+		GameManager.update_hit_counts(scene_name)
 		
 		visible = false
 		

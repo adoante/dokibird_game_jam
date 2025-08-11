@@ -10,6 +10,8 @@ size = Vector3(2, 2, 0.2)
 [node name="NPCCarOrange" type="Area3D"]
 script = ExtResource("1_1ob4o")
 speed = 12.0
+point_amount = -5.0
+scene_name = "NPC Orange Car"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)

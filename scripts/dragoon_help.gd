@@ -6,6 +6,8 @@ extends Area3D
 @export var particles: PackedScene
 @export var speed := 2.0
 @export var rotate_confetti_flat := true
+@export var point_amount: float
+@export var scene_name: String
 
 var truck_empty_back: Texture2D
 var truck_empty_front: Texture2D
@@ -31,6 +33,15 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		triggered = true
 
+		# update score
+		GameManager.update_score(point_amount)
+		
+		# update hit counts
+		GameManager.update_hit_counts(scene_name)
+
+		# Add to dragoon meter
+		GameManager.update_dragoon_meter(scene_name)
+	
 		front.texture = truck_empty_front
 		back.texture = truck_empty_back
 		

@@ -464,6 +464,8 @@ _data = {
 script = ExtResource("1_u34an")
 particles = ExtResource("2_dm8ck")
 speed = 20.0
+point_amount = 5.0
+scene_name = "Small Help Truck"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)
