@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://eu482755d0ml"]
+
+[ext_resource type="Script" uid="uid://st4qb0htmygd" path="res://scripts/boost_meter.gd" id="1_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://braimhduurbts" path="res://assets/UI/dooby_progress_bar_1.png" id="2_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://dant7jwhe73an" path="res://assets/UI/dooby_progress_bar_2.png" id="3_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://ovtr8mmnmi8l" path="res://assets/UI/dooby_progress_bar_3.png" id="4_8dubc"]
+[ext_resource type="Texture2D" uid="uid://brl5nygolqfrv" path="res://assets/UI/boost_meter_empty.png" id="5_wm3ai"]
+[ext_resource type="Script" uid="uid://lhq0v6mf7816" path="res://scripts/powerup_timers.gd" id="6_8dubc"]
+[ext_resource type="Script" uid="uid://tj4obfy85gc5" path="res://scripts/dragoon_meter_label.gd" id="7_p7vwb"]
+[ext_resource type="Script" uid="uid://cit7x524imw0u" path="res://scripts/score_label.gd" id="8_ktti3"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="BoostMeterControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wm3ai")
+
+[node name="Segments" type="HBoxContainer" parent="BoostMeterControl"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 1079.0
+offset_bottom = 261.0
+scale = Vector2(0.2728, 0.2728)
+theme_override_constants/separation = -4
+
+[node name="Seg1" type="TextureProgressBar" parent="BoostMeterControl/Segments"]
+layout_mode = 2
+max_value = 33.333
+texture_progress = ExtResource("2_gdt2y")
+
+[node name="Seg2" type="TextureProgressBar" parent="BoostMeterControl/Segments"]
+layout_mode = 2
+max_value = 33.333
+texture_progress = ExtResource("3_wm3ai")
+
+[node name="Seg3" type="TextureProgressBar" parent="BoostMeterControl/Segments"]
+layout_mode = 2
+max_value = 33.333
+texture_progress = ExtResource("4_8dubc")
+
+[node name="BoostMeter" type="TextureRect" parent="BoostMeterControl"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 976.0
+offset_bottom = 193.0
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("5_wm3ai")
+
+[node name="PowerupTimers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 81.0
+offset_right = 40.0
+offset_bottom = 121.0
+script = ExtResource("6_8dubc")
+
+[node name="BoostMeterTimer" type="Label" parent="PowerupTimers"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "Boost Time: "
+
+[node name="DragoonMeterTimer" type="Label" parent="PowerupTimers"]
+offset_top = 29.0
+offset_right = 156.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 24
+text = "Dragoon Time: "
+
+[node name="DragoonMeterLabel" type="Label" parent="."]
+offset_top = 147.0
+offset_right = 40.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 32
+script = ExtResource("7_p7vwb")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 573.0
+offset_top = 10.0
+offset_right = 729.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 64
+script = ExtResource("8_ktti3")

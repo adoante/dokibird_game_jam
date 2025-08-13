@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgvwxh4o707p7"]
 
 [ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/electric_totem.gd" id="1_2xqx5"]
-[ext_resource type="Texture2D" uid="uid://be8eastobrk8b" path="res://assets/Objects/eletric_totem.png" id="1_7utpe"]
+[ext_resource type="Texture2D" uid="uid://be8eastobrk8b" path="res://assets/Objects/DownTown/eletric_totem.png" id="1_7utpe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xqx5"]
 

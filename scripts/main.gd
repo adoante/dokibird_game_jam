@@ -26,7 +26,6 @@ func _activate_camera(index: int):
 	for i in range(cameras.size()):
 		cameras[i].current = (i == index)
 
-	# Inform player about camera mode
 	if index == 0:
 		GameManager.set_powerup_state(GameManager.PowerUpState.LONG_NECK)
 	else:

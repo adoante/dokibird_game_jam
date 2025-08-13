@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://blbb81ysvhl2e"]
 
-[ext_resource type="Texture2D" uid="uid://kov8ewiua8yy" path="res://assets/Objects/smoke_cloud.png" id="1_k027s"]
+[ext_resource type="Texture2D" uid="uid://kov8ewiua8yy" path="res://assets/Textures/Particles/smoke_cloud.png" id="1_k027s"]
 
 [sub_resource type="Curve" id="Curve_6ycs3"]
 _limits = [0.0, 2.0, 0.0, 1.0]

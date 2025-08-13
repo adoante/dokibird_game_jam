@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg4gv1fxwbycm"]
+
+[ext_resource type="Script" uid="uid://c6qt67ikqmra0" path="res://scripts/npc_car.gd" id="1_1ob4o"]
+[ext_resource type="Texture2D" uid="uid://dc2ajtqrtit2x" path="res://assets/NPCs/GenericCars/NPCCarOrangeFront.png" id="1_e61wk"]
+[ext_resource type="Texture2D" uid="uid://cwok8eoxopnc6" path="res://assets/NPCs/GenericCars/NPCCarOrangeBack.png" id="2_1ob4o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1x86t"]
+size = Vector3(2, 2, 0.2)
+
+[node name="NPCCarOrange" type="Area3D"]
+script = ExtResource("1_1ob4o")
+speed = 12.0
+point_amount = -75.0
+scene_name = "NPC Orange Car"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)
+shape = SubResource("BoxShape3D_1x86t")
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0, -0.6, 0)
+texture = ExtResource("1_e61wk")
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0.01, -0.6, 0)
+texture = ExtResource("2_1ob4o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

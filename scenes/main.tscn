@@ -1,24 +1,29 @@
-[gd_scene load_steps=25 format=3 uid="uid://dtcgop152vh10"]
+[gd_scene load_steps=30 format=3 uid="uid://dtcgop152vh10"]
 
 [ext_resource type="PackedScene" uid="uid://d20vw6dyu8cnm" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://bestm2wxb5cf8" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="Texture2D" uid="uid://baomukp5f6i7e" path="res://assets/Textures/Dirtroad.jpg" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://baomukp5f6i7e" path="res://assets/Textures/Rustic/Dirtroad.jpg" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dfnuksnyuwh5b" path="res://scenes/object_spawner.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://i4omrfttutyn" path="res://scenes/Enemies/small_help.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://eu482755d0ml" path="res://scenes/ui.tscn" id="4_y6deb"]
 [ext_resource type="PackedScene" uid="uid://dtgkisjopgyi6" path="res://scenes/Enemies/long_help.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ccjo6ljxk2gh8" path="res://scenes/Enemies/chonky_help.tscn" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://cww3xb2sp83eq" path="res://assets/Textures/Road2.jpg" id="7_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://dik66mookpkib" path="res://assets/Textures/Evilroad1.png" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cpdu4iiextqh3" path="res://scenes/NPCs/npc_car_blue.tscn" id="8_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://cn278vwv7xki4" path="res://assets/Textures/Evilroad2.jpg" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://cww3xb2sp83eq" path="res://assets/Textures/BigCity/Road2.jpg" id="7_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://dik66mookpkib" path="res://assets/Textures/DownTown/Evilroad1.png" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cpdu4iiextqh3" path="res://scenes/NPCs/GenericCars/npc_car_blue.tscn" id="8_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://cn278vwv7xki4" path="res://assets/Textures/DownTown/Evilroad2.jpg" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://db8p0p1fd0x8d" path="res://scenes/Objects/sample_ramp.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://dcyw50pq2wb24" path="res://scenes/Backgrounds/sky_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bgvwxh4o707p7" path="res://scenes/Objects/electric_totem.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://du6qj35k87rdh" path="res://scenes/Objects/electric_totem_2.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://d3jn7of4om7gn" path="res://scenes/Objects/electric_totem_3.tscn" id="14_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cmjbyt3q52pyw" path="res://scenes/NPCs/npc_car_grey.tscn" id="17_0ld40"]
-[ext_resource type="PackedScene" uid="uid://dg4gv1fxwbycm" path="res://scenes/NPCs/npc_car_orange.tscn" id="18_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://clp8uqvmpf66t" path="res://scenes/NPCs/npc_car_red.tscn" id="19_yc10j"]
+[ext_resource type="PackedScene" uid="uid://cmjbyt3q52pyw" path="res://scenes/NPCs/GenericCars/npc_car_grey.tscn" id="17_0ld40"]
+[ext_resource type="PackedScene" uid="uid://dg4gv1fxwbycm" path="res://scenes/NPCs/GenericCars/npc_car_orange.tscn" id="18_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://clp8uqvmpf66t" path="res://scenes/NPCs/GenericCars/npc_car_red.tscn" id="19_yc10j"]
+[ext_resource type="PackedScene" uid="uid://rt4wqanb7qcm" path="res://scenes/NPCs/VTuberFriends/mint_v_tuber_car.tscn" id="20_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://rciaqdt8duex" path="res://scenes/NPCs/VTuberFriends/dooby_v_tuber_car.tscn" id="21_jscy8"]
+[ext_resource type="PackedScene" uid="uid://i7c1dx6710gl" path="res://scenes/NPCs/VTuberFriends/chibidoki_v_tuber_car.tscn" id="22_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://dbwab71tgcmou" path="res://scenes/despawn.tscn" id="23_pm3ni"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tipki"]
 albedo_texture = ExtResource("2_o6xl0")
@@ -50,11 +55,13 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.6491, 6.39354, 0)
+transform = Transform3D(-4.3881e-08, 0, -1.00388, 0, 1.00388, 0, 1.00388, 0, -4.3881e-08, -19.6491, 6.39354, 0)
 fov = 35.0
 
 [node name="Player" parent="." instance=ExtResource("1_0wfyh")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 2.321, 0)
+
+[node name="UI" parent="." instance=ExtResource("4_y6deb")]
 
 [node name="CSGHolder" type="Node" parent="."]
 
@@ -95,31 +102,31 @@ size = Vector3(1, 0.25, 2)
 [node name="SpawnerHolder" type="Node" parent="."]
 
 [node name="SmallHelpSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8603, 4.15896, -3.39888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4048, 4.15896, 63.3708)
 object_to_spawn = ExtResource("4_jyhfs")
 spawn_interval = 4.25
 initial_position = Vector3(35, 2, 0)
 
 [node name="LongHelpSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.1794, 4.15896, -3.39888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7239, 4.15896, 63.3708)
 object_to_spawn = ExtResource("5_tefeu")
 spawn_interval = 4.5
 initial_position = Vector3(35, 2, 0)
 
 [node name="ChonkyHelpSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2312, 8.31792, -3.45175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7757, 8.31792, 63.318)
 object_to_spawn = ExtResource("6_o6xl0")
 spawn_interval = 5.0
 initial_position = Vector3(35, 2, 0)
 
 [node name="RampSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.525, 5.99002, -3.44763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0695, 5.99002, 63.3221)
 object_to_spawn = ExtResource("10_choun")
 spawn_interval = 1.5
 initial_position = Vector3(35, 0, 0)
 
 [node name="ElectricTotemSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.2677, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8122, 2, 62.4137)
 object_to_spawn = ExtResource("12_eb6dy")
 spawn_interval = 19.0
 initial_position = Vector3(35, 0, 12)
@@ -127,7 +134,7 @@ random_z_axis = false
 rotate_by = 90.0
 
 [node name="ElectricTotemSpawner2" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.1414, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6859, 2, 62.4137)
 object_to_spawn = ExtResource("12_eb6dy")
 spawn_interval = 19.0
 initial_position = Vector3(35, 0, -12)
@@ -135,7 +142,7 @@ random_z_axis = false
 rotate_by = -90.0
 
 [node name="ElectricTotem2Spawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.0005, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.545, 2, 62.4137)
 object_to_spawn = ExtResource("13_trceg")
 spawn_interval = 4.0
 initial_position = Vector3(35, 7, 8)
@@ -143,7 +150,7 @@ random_z_axis = false
 rotate_by = -90.0
 
 [node name="ElectricTotem2Spawner2" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.9208, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4653, 2, 62.4137)
 object_to_spawn = ExtResource("13_trceg")
 spawn_interval = 4.0
 initial_position = Vector3(35, 7, -8)
@@ -151,7 +158,7 @@ random_z_axis = false
 rotate_by = 90.0
 
 [node name="ElectricTotem3Spawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7647, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3092, 2, 62.4137)
 object_to_spawn = ExtResource("14_a8y0u")
 spawn_interval = 23.0
 initial_position = Vector3(35, 7, -12)
@@ -159,7 +166,7 @@ random_z_axis = false
 rotate_by = 90.0
 
 [node name="ElectricTotem3Spawner2" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.727, 2, -4.35601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2715, 2, 62.4137)
 object_to_spawn = ExtResource("14_a8y0u")
 spawn_interval = 23.0
 initial_position = Vector3(35, 7, 12)
@@ -167,25 +174,46 @@ random_z_axis = false
 rotate_by = 90.0
 
 [node name="BlueCarSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.314, 0, -6.20979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8585, 0, 60.5599)
 object_to_spawn = ExtResource("8_jbj1t")
 spawn_interval = 5.0
 initial_position = Vector3(35, 2, 0)
 
 [node name="GreyCarSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.8531, 0, -6.20979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3976, 0, 60.5599)
 object_to_spawn = ExtResource("17_0ld40")
 spawn_interval = 7.0
 initial_position = Vector3(35, 2, 0)
 
 [node name="OrangeCarSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6228, 0, -12.4196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1673, 0, 54.3501)
 object_to_spawn = ExtResource("18_gqmmt")
 spawn_interval = 9.0
 initial_position = Vector3(35, 2, 0)
 
 [node name="RedCarSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.1452, 0, -6.20979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6897, 0, 60.5599)
 object_to_spawn = ExtResource("19_yc10j")
 spawn_interval = 11.0
 initial_position = Vector3(35, 2, 0)
+
+[node name="MintVTuberSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8829, 0, 50.6043)
+object_to_spawn = ExtResource("20_gqmmt")
+spawn_interval = 5.0
+initial_position = Vector3(35, 2, 0)
+
+[node name="DoobyVTuberSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8829, 0, 50.6043)
+object_to_spawn = ExtResource("21_jscy8")
+spawn_interval = 6.0
+initial_position = Vector3(35, 2, 0)
+
+[node name="ChibidokiVTuberSpawner" parent="SpawnerHolder" instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8829, 0, 50.6043)
+object_to_spawn = ExtResource("22_pm3ni")
+spawn_interval = 7.0
+initial_position = Vector3(35, 2, 0)
+
+[node name="Despawn" parent="." instance=ExtResource("23_pm3ni")]
+transform = Transform3D(35, 0, 0, 0, -1.5299e-06, 35, 0, -35, -1.5299e-06, -75, 10, 0)

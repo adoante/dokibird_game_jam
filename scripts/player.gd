@@ -10,7 +10,7 @@ extends CharacterBody3D
 @export_group("Speeds")
 @export var jump_velocity : float = 4.5
 @export var base_speed : float = 7.0
-@export var boost_bonus : float = 4.0
+@export var boost_bonus : float = 10.0
 
 @export_group("Input Actions")
 @export var input_left  : String = "move_left"
@@ -26,13 +26,17 @@ func _ready() -> void:
 	switch_to_first_person()
 	move_speed = base_speed
 	_setup_timers()
-	_apply_powerup_state(GameManager.current_powerup_state)
+	_apply_powerup_state(GameManager.get_powerup_state())
 
 func _physics_process(delta: float) -> void:
 	GameManager.check_dragoon_meter()
+	GameManager.check_boost_meter()
 	
-	if GameManager.current_powerup_state != last_powerup_state:
-		_apply_powerup_state(GameManager.current_powerup_state)
+	GameManager.set_boost_meter_time_left(boost_meter_timer.time_left)
+	GameManager.set_dragoon_meter_time_left(dragoon_meter_timer.time_left)
+	
+	if GameManager.get_powerup_state() != last_powerup_state:
+		_apply_powerup_state(GameManager.get_powerup_state())
 		
 	basic_movement(delta)
 
@@ -68,7 +72,6 @@ func _apply_powerup_state(state: GameManager.PowerUpState, force := false) -> vo
 			switch_to_third_person()
 			if prev != GameManager.PowerUpState.LONG_NECK:
 				dragoon_meter_timer.start()
-
 		GameManager.PowerUpState.BOOST:
 			move_speed = base_speed + boost_bonus
 			switch_to_first_person()

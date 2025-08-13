@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://rciaqdt8duex"]
+
+[ext_resource type="Script" uid="uid://c3pttnhhdvwd" path="res://scripts/v_tuber_car.gd" id="1_kxber"]
+[ext_resource type="PackedScene" uid="uid://df5n5glpq6mfs" path="res://scenes/Particles/dooby_mascot_particles.tscn" id="2_bpnjj"]
+[ext_resource type="Texture2D" uid="uid://c3o570jauj425" path="res://assets/NPCs/VTuberFriends/DoobyCarFront.png" id="2_kxber"]
+[ext_resource type="Texture2D" uid="uid://4wdabwl1pwwt" path="res://assets/NPCs/VTuberFriends/DoobyCarBack.png" id="3_bpnjj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqdwe"]
+size = Vector3(2, 2, 0.2)
+
+[node name="DoobyVTuberCar" type="Area3D"]
+script = ExtResource("1_kxber")
+speed = 15.0
+point_amount = 20.0
+scene_name = "VTuber Friend Dooby"
+particles = ExtResource("2_bpnjj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, -0.22759, -0.000585556)
+shape = SubResource("BoxShape3D_iqdwe")
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0, -0.6, 0)
+texture = ExtResource("2_kxber")
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0.01, -0.6, 0)
+texture = ExtResource("3_bpnjj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

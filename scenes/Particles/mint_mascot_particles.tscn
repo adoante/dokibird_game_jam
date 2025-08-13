@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://qwqdtb6uankh"]
+
+[ext_resource type="Texture2D" uid="uid://coh7ouopt3peq" path="res://assets/NPCs/Mascots/MintMascot.png" id="1_1aqug"]
+
+[sub_resource type="Curve" id="Curve_6ycs3"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503876, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.0367047), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_py3sk"]
+curve = SubResource("Curve_6ycs3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_us3b5"]
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 15.0
+tangential_accel_max = 15.0
+scale_curve = SubResource("CurveTexture_py3sk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c81b4"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_1aqug")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lflpy"]
+material = SubResource("StandardMaterial3D_c81b4")
+
+[node name="MintMascotParticles" type="GPUParticles3D"]
+amount = 50
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_us3b5")
+draw_pass_1 = SubResource("QuadMesh_lflpy")

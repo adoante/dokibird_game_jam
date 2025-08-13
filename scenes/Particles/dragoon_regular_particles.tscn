@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctgx1dkwg0mwb"]
 
-[ext_resource type="Texture2D" uid="uid://ixgbmr3e717p" path="res://assets/Objects/dragoon_regular.png" id="1_6ycs3"]
+[ext_resource type="Texture2D" uid="uid://ixgbmr3e717p" path="res://assets/NPCs/Mascots/dragoon_regular.png" id="1_6ycs3"]
 
 [sub_resource type="Curve" id="Curve_6ycs3"]
 _limits = [0.0, 2.0, 0.0, 1.0]
