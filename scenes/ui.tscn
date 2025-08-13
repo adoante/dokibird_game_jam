@@ -60,12 +60,14 @@ offset_bottom = 121.0
 script = ExtResource("6_8dubc")
 
 [node name="BoostMeterTimer" type="Label" parent="PowerupTimers"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 24
 text = "Boost Time: "
 
 [node name="DragoonMeterTimer" type="Label" parent="PowerupTimers"]
+layout_mode = 0
 offset_top = 29.0
 offset_right = 156.0
 offset_bottom = 63.0
