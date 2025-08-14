@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://eu482755d0ml"]
+[gd_scene load_steps=8 format=3 uid="uid://eu482755d0ml"]
 
 [ext_resource type="Script" uid="uid://st4qb0htmygd" path="res://scripts/boost_meter.gd" id="1_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://braimhduurbts" path="res://assets/UI/dooby_progress_bar_1.png" id="2_gdt2y"]
@@ -6,15 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://ovtr8mmnmi8l" path="res://assets/UI/dooby_progress_bar_3.png" id="4_8dubc"]
 [ext_resource type="Texture2D" uid="uid://brl5nygolqfrv" path="res://assets/UI/boost_meter_empty.png" id="5_wm3ai"]
 [ext_resource type="Script" uid="uid://lhq0v6mf7816" path="res://scripts/powerup_timers.gd" id="6_8dubc"]
-[ext_resource type="Script" uid="uid://tj4obfy85gc5" path="res://scripts/dragoon_meter_label.gd" id="7_p7vwb"]
-[ext_resource type="Script" uid="uid://cit7x524imw0u" path="res://scripts/score_label.gd" id="8_ktti3"]
+[ext_resource type="Script" uid="uid://c0bq3c830gqra" path="res://scripts/ui_labels.gd" id="7_cgfq5"]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="BoostMeterControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 4.0
+offset_right = 44.0
 offset_bottom = 40.0
 script = ExtResource("1_wm3ai")
 
@@ -61,10 +61,14 @@ script = ExtResource("6_8dubc")
 
 [node name="BoostMeterTimer" type="Label" parent="PowerupTimers"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 24
-text = "Boost Time: "
+offset_left = 357.0
+offset_top = -67.0
+offset_right = 397.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DragoonMeterTimer" type="Label" parent="PowerupTimers"]
 layout_mode = 0
@@ -74,17 +78,46 @@ offset_bottom = 63.0
 theme_override_font_sizes/font_size = 24
 text = "Dragoon Time: "
 
-[node name="DragoonMeterLabel" type="Label" parent="."]
+[node name="PointLabels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1281.0
+offset_bottom = 225.0
+script = ExtResource("7_cgfq5")
+
+[node name="DragoonMeterLabel" type="Label" parent="PointLabels"]
+layout_mode = 0
 offset_top = 147.0
 offset_right = 40.0
-offset_bottom = 170.0
+offset_bottom = 192.0
 theme_override_font_sizes/font_size = 32
-script = ExtResource("7_p7vwb")
+text = "[]"
 
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 573.0
-offset_top = 10.0
-offset_right = 729.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 64
-script = ExtResource("8_ktti3")
+[node name="ScoreLabel" type="Label" parent="PointLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_right = 103.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboMeterLabel" type="Label" parent="PointLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = 44.0
+offset_right = 103.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Combo: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

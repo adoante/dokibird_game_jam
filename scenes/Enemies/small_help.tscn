@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://i4omrfttutyn"]
 
-[ext_resource type="Script" uid="uid://u73p7pwnivpn" path="res://scripts/dragoon_help.gd" id="1_u34an"]
+[ext_resource type="Script" uid="uid://u73p7pwnivpn" path="res://scripts/dragoon_car.gd" id="1_u34an"]
 [ext_resource type="PackedScene" uid="uid://ctgx1dkwg0mwb" path="res://scenes/Particles/dragoon_regular_particles.tscn" id="2_dm8ck"]
 [ext_resource type="Texture2D" uid="uid://cvsx3yguhwv3d" path="res://assets/Enemies/SmallHelpFront.png" id="2_uq5ye"]
 [ext_resource type="Texture2D" uid="uid://bxaltbo3t33wk" path="res://assets/Enemies/SmallHelpBack.png" id="3_dm8ck"]

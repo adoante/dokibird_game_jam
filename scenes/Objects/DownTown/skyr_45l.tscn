@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccaoujcv776ef"]
+
+[ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/side_road_object.gd" id="1_1aegs"]
+[ext_resource type="Texture2D" uid="uid://yix8s8xly3v3" path="res://assets/Textures/DownTown/skyr45L.jpg" id="2_py4bo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p841b"]
+albedo_texture = ExtResource("2_py4bo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fgix"]
+size = Vector3(1, 2.46265, 0.994141)
+
+[node name="skyr45L" type="Area3D"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+script = ExtResource("1_1aegs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.45996, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p841b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
+shape = SubResource("BoxShape3D_3fgix")

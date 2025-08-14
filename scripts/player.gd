@@ -29,8 +29,8 @@ func _ready() -> void:
 	_apply_powerup_state(GameManager.get_powerup_state())
 
 func _physics_process(delta: float) -> void:
-	GameManager.check_dragoon_meter()
-	GameManager.check_boost_meter()
+	dragoon_meter_timer.wait_time = GameManager.check_dragoon_meter()
+	boost_meter_timer.wait_time = GameManager.check_boost_meter()
 	
 	GameManager.set_boost_meter_time_left(boost_meter_timer.time_left)
 	GameManager.set_dragoon_meter_time_left(dragoon_meter_timer.time_left)

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4gn87dct0o0d"
-path.s3tc="res://.godot/imported/smoke_cloud_2.png-31f73b1a52079fefe73d66ac62cf7b12.s3tc.ctex"
+uid="uid://cacrhaooaehk3"
+path.s3tc="res://.godot/imported/NimiMascot.png-f4657793d226c15ea470a9231d865d1e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/Particles/smoke_cloud_2.png"
-dest_files=["res://.godot/imported/smoke_cloud_2.png-31f73b1a52079fefe73d66ac62cf7b12.s3tc.ctex"]
+source_file="res://assets/NPCs/Mascots/NimiMascot.png"
+dest_files=["res://.godot/imported/NimiMascot.png-f4657793d226c15ea470a9231d865d1e.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqf6hgby5jwm"]
+
+[ext_resource type="Texture2D" uid="uid://rdgmg2w2rahy" path="res://assets/Textures/DownTown/skyr08L.jpg" id="1_3fgix"]
+[ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/side_road_object.gd" id="1_evp78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6deb"]
+albedo_texture = ExtResource("1_3fgix")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fgix"]
+size = Vector3(0.428711, 1, 0.349609)
+
+[node name="skyr08L" type="Area3D"]
+script = ExtResource("1_evp78")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-17.158, 3.45798e-06, 0, -1.5e-06, -39.5547, 0, 0, 0, 13.9803, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_y6deb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+shape = SubResource("BoxShape3D_3fgix")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu1f5l6fc5ggg"
-path.s3tc="res://.godot/imported/wal043L.jpg-be6b37aeacf7631ebd4d839ff32a926b.s3tc.ctex"
+uid="uid://dt34dvtt14njy"
+path.s3tc="res://.godot/imported/NimiCarFront.png-4949f34f0ac3611dc666279bb5bc5837.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/DownTown/wal043L.jpg"
-dest_files=["res://.godot/imported/wal043L.jpg-be6b37aeacf7631ebd4d839ff32a926b.s3tc.ctex"]
+source_file="res://assets/NPCs/VTuberFriends/NimiCarFront.png"
+dest_files=["res://.godot/imported/NimiCarFront.png-4949f34f0ac3611dc666279bb5bc5837.s3tc.ctex"]
 
 [params]
 

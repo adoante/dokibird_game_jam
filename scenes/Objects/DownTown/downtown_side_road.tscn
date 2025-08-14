@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqmk7jehsdfms"]
+
+[ext_resource type="PackedScene" uid="uid://bqf6hgby5jwm" path="res://scenes/Objects/DownTown/skyr08L.tscn" id="1_tp64u"]
+[ext_resource type="PackedScene" uid="uid://bait1ps311f17" path="res://scenes/Objects/DownTown/skyr_34L.tscn" id="2_nl7ro"]
+[ext_resource type="PackedScene" uid="uid://ccaoujcv776ef" path="res://scenes/Objects/DownTown/skyr_45l.tscn" id="3_iba00"]
+[ext_resource type="PackedScene" uid="uid://br136vlwpxhx4" path="res://scenes/Objects/DownTown/skyr_48l.tscn" id="4_su007"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="skyr08L" parent="." instance=ExtResource("1_tp64u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18488, 0, 37.6236)
+
+[node name="skyr34L" parent="." instance=ExtResource("2_nl7ro")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -12.1606, 22.526)
+
+[node name="skyr45L" parent="." instance=ExtResource("3_iba00")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 2.31951, -1.25612, 5.87235)
+
+[node name="skyr48L" parent="." instance=ExtResource("4_su007")]
+transform = Transform3D(-0.180468, 0, 0.983581, 0, 1, 0, -0.983581, 0, -0.180468, 0.596452, -14.1017, -5.13239)
+
+[node name="skyr34L2" parent="." instance=ExtResource("2_nl7ro")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 3.55724, 2.94795, 22.7765)
+
+[node name="skyr34L3" parent="." instance=ExtResource("2_nl7ro")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 7.17228, 18.5019, 22.7765)
+
+[node name="skyr48L2" parent="." instance=ExtResource("4_su007")]
+transform = Transform3D(-0.180468, 0, 0.983581, 0, 1, 0, -0.983581, 0, -0.180468, 0.596452, -1.5504, -5.13239)
+
+[node name="skyr48L3" parent="." instance=ExtResource("4_su007")]
+transform = Transform3D(-0.180468, 0, 0.983581, 0, 1, 0, -0.983581, 0, -0.180468, -0.592425, -14.1017, -11.612)
+
+[node name="skyr48L4" parent="." instance=ExtResource("4_su007")]
+transform = Transform3D(-0.180468, 0, 0.983581, 0, 1, 0, -0.983581, 0, -0.180468, -0.600479, -1.53706, -11.6559)

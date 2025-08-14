@@ -23,6 +23,7 @@ func _on_body_entered(body):
 		GameManager.update_score(point_amount)
 		GameManager.update_hit_counts(scene_name)
 		GameManager.update_boost_meter(scene_name)
+		GameManager.update_combo_meter(point_amount)
 		
 		visible = false
 		

@@ -33,13 +33,9 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		triggered = true
 
-		# update score
 		GameManager.update_score(point_amount)
-		
-		# update hit counts
+		GameManager.update_combo_meter(point_amount)
 		GameManager.update_hit_counts(scene_name)
-
-		# Add to dragoon meter
 		GameManager.update_dragoon_meter(scene_name)
 	
 		front.texture = truck_empty_front

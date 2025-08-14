@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu1f5l6fc5ggg"
-path.s3tc="res://.godot/imported/wal043L.jpg-be6b37aeacf7631ebd4d839ff32a926b.s3tc.ctex"
+uid="uid://4gn87dct0o0d"
+path.s3tc="res://.godot/imported/smoke_cloud_2.png-360671a2c11378fa3726595de5fd7308.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/DownTown/wal043L.jpg"
-dest_files=["res://.godot/imported/wal043L.jpg-be6b37aeacf7631ebd4d839ff32a926b.s3tc.ctex"]
+source_file="res://assets/Textures/DownTown/Particles/smoke_cloud_2.png"
+dest_files=["res://.godot/imported/smoke_cloud_2.png-360671a2c11378fa3726595de5fd7308.s3tc.ctex"]
 
 [params]
 

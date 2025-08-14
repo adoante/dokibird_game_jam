@@ -21,11 +21,14 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		triggered = true
 		
-		# update score
-		GameManager.update_score(point_amount)
-		
-		# update hit counts
-		GameManager.update_hit_counts(scene_name)
+		if GameManager.get_powerup_state() == GameManager.PowerUpState.BOOST or  GameManager.get_powerup_state() == GameManager.PowerUpState.LONG_NECK:
+			GameManager.update_score(100)
+			GameManager.update_hit_counts("NPC Grey Car Good")
+			GameManager.update_combo_meter(100)
+		else:
+			GameManager.update_score(point_amount)
+			GameManager.update_hit_counts(scene_name)
+			GameManager.update_combo_meter(point_amount)
 		
 		visible = false
 		

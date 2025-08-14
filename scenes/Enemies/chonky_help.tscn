@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ccjo6ljxk2gh8"]
 
-[ext_resource type="Script" uid="uid://u73p7pwnivpn" path="res://scripts/dragoon_help.gd" id="1_4mk7o"]
+[ext_resource type="Script" uid="uid://u73p7pwnivpn" path="res://scripts/dragoon_car.gd" id="1_4mk7o"]
 [ext_resource type="Texture2D" uid="uid://bxcchwkmlkqb6" path="res://assets/Enemies/ChonkyHelpFront.png" id="2_2eqa3"]
 [ext_resource type="PackedScene" uid="uid://cqveyd7u4eael" path="res://scenes/Particles/dragoon_chonky_particles.tscn" id="2_7g3yl"]
 [ext_resource type="Texture2D" uid="uid://i1iqrj81ajc6" path="res://assets/Enemies/ChonkyHelpBack.png" id="3_7g3yl"]
