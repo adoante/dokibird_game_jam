@@ -21,7 +21,7 @@ func _ready():
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
-	music_player.volume_db = -15
+	music_player.volume_db = -25
 	
 	music_player.stream = bgm_tracks[SceneManager.ScreenState.START]
 	music_player.play()

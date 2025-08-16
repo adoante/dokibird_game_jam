@@ -12,21 +12,21 @@ var boost_meter_full: Texture2D
 	"VTuber Friend Mint": preload("res://assets/UI/mint_progress_bar_1.png"),
 	"VTuber Friend Dooby": preload("res://assets/UI/dooby_progress_bar_1.png"),
 	"VTuber Friend Chibidoki": preload("res://assets/UI/chibidoki_progress_bar_1.png"),
-	"VTuber Friend Nimi": Texture2D
+	"VTuber Friend Nimi": preload("res://assets/UI/nimi_progress_bar_1.png")
 }
 
 @onready var seg_2_fill = {
 	"VTuber Friend Mint": preload("res://assets/UI/mint_progress_bar_2.png"),
 	"VTuber Friend Dooby": preload("res://assets/UI/dooby_progress_bar_2.png"),
 	"VTuber Friend Chibidoki": preload("res://assets/UI/chibidoki_progress_bar_2.png"),
-	"VTuber Friend Nimi": Texture2D
+	"VTuber Friend Nimi": preload("res://assets/UI/nimi_progress_bar_2.png")
 }
 
 @onready var seg_3_fill = {
 	"VTuber Friend Mint": preload("res://assets/UI/mint_progress_bar_3.png"),
 	"VTuber Friend Dooby": preload("res://assets/UI/dooby_progress_bar_3.png"),
 	"VTuber Friend Chibidoki": preload("res://assets/UI/chibidoki_progress_bar_3.png"),
-	"VTuber Friend Nimi": Texture2D
+	"VTuber Friend Nimi": preload("res://assets/UI/nimi_progress_bar_3.png")
 }
 
 func _ready():
