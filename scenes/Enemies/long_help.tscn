@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtgkisjopgyi6"]
+[gd_scene load_steps=12 format=3 uid="uid://dtgkisjopgyi6"]
 
 [ext_resource type="Script" uid="uid://u73p7pwnivpn" path="res://scripts/dragoon_car.gd" id="1_exxdo"]
 [ext_resource type="Texture2D" uid="uid://dciuw2s5rj66p" path="res://assets/Enemies/LongHelpFront.png" id="2_5muo6"]
 [ext_resource type="PackedScene" uid="uid://dab7ytwmi0hkk" path="res://scenes/Particles/dragoon_long_particles.tscn" id="3_d7h08"]
 [ext_resource type="Texture2D" uid="uid://c53be4k7pfnbm" path="res://assets/Enemies/LongHelpBack.png" id="3_kgmsc"]
+[ext_resource type="AudioStream" uid="uid://xdcdkooisrub" path="res://assets/Audio/SFX/NPC/BirdGet.wav" id="5_kgmsc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u34an"]
 size = Vector3(2, 2, 0.2)
@@ -483,5 +484,8 @@ texture = ExtResource("3_kgmsc")
 libraries = {
 &"": SubResource("AnimationLibrary_dm8ck")
 }
+
+[node name="BirdGetSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_kgmsc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -56,6 +56,13 @@ func update_hit_counts(key: String):
 	_hit_counts[key] += 1
 	print(str(key) + " hit counts: " + str(_hit_counts[key]))
 
+func clear_hit_counts():
+	for key in _hit_counts.keys():
+		_hit_counts[key] = 0
+
+func get_hit_counts():
+	return _hit_counts
+
 func get_powerup_state() -> PowerUpState:
 	return _current_powerup_state
 

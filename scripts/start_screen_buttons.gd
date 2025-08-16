@@ -12,7 +12,7 @@ extends CanvasLayer
 
 # START
 func _on_start_button_pressed() -> void:
-	SceneManager.goto_play()
+	SceneManager.goto_story(SceneManager.ScreenState.STORY_1)
 
 func _on_start_button_mouse_entered() -> void:
 	start_animation_player.play("expand_tilt_left_then_right")

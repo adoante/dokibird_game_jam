@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://djudtrfcia0pg"]
+
+[ext_resource type="PackedScene" uid="uid://bd8o7efqdxmeh" path="res://scenes/Objects/BigCity/skyr_06l.tscn" id="1_gvqq5"]
+[ext_resource type="PackedScene" uid="uid://d3lqhlxeinynb" path="res://scenes/Objects/BigCity/skyr_07l.tscn" id="2_m0bma"]
+[ext_resource type="PackedScene" uid="uid://d3uruylmpvyhc" path="res://scenes/Objects/BigCity/skyr_37l.tscn" id="3_65def"]
+[ext_resource type="PackedScene" uid="uid://chb85ue5ivnay" path="res://scenes/Objects/BigCity/skyr_38l.tscn" id="4_h685h"]
+[ext_resource type="PackedScene" uid="uid://bf6t3hwoly5vc" path="res://scenes/Objects/BigCity/skyr_60l.tscn" id="5_ge0x5"]
+
+[node name="bigcity_side_road" type="Node3D"]
+
+[node name="skyr06L" parent="." instance=ExtResource("1_gvqq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8289, 0, 0)
+
+[node name="skyr07L" parent="." instance=ExtResource("2_m0bma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9788, 0, 0)
+
+[node name="skyr07L2" parent="." instance=ExtResource("2_m0bma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9788, 28.2579, -11.7715)
+
+[node name="skyr37L" parent="." instance=ExtResource("3_65def")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9197, 0, 0)
+
+[node name="skyr38L" parent="." instance=ExtResource("4_h685h")]
+transform = Transform3D(0.853187, 0, -0.521605, 0, 1, 0, 0.521605, 0, 0.853187, 28.1826, 0, 13.4625)
+
+[node name="skyr60L" parent="." instance=ExtResource("5_ge0x5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.0044, -19.3519, 0)
+
+[node name="skyr60L2" parent="." instance=ExtResource("5_ge0x5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5685, -1.24686, 2.83182)
+
+[node name="skyr60L3" parent="." instance=ExtResource("5_ge0x5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.3518, 15.7851, 0)
+
+[node name="skyr60L4" parent="." instance=ExtResource("5_ge0x5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.0044, 33.4398, -7.38681)
+
+[node name="skyr60L5" parent="." instance=ExtResource("5_ge0x5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.5601, 51.1135, 0)

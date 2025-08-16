@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://i7c1dx6710gl"]
+[gd_scene load_steps=7 format=3 uid="uid://i7c1dx6710gl"]
 
 [ext_resource type="Script" uid="uid://c3pttnhhdvwd" path="res://scripts/v_tuber_car.gd" id="1_vx5l3"]
 [ext_resource type="PackedScene" uid="uid://drv6bqbwfhrd0" path="res://scenes/Particles/chibidoki_mascot_particles.tscn" id="2_poeve"]
 [ext_resource type="Texture2D" uid="uid://b6un3y7q621p1" path="res://assets/NPCs/VTuberFriends/ChibidokiCarFront.png" id="3_ho3cx"]
 [ext_resource type="Texture2D" uid="uid://vkjd01gi7eok" path="res://assets/NPCs/VTuberFriends/ChibidokiCarBack.png" id="4_t577f"]
+[ext_resource type="AudioStream" uid="uid://hpnwlt8vbp5u" path="res://assets/Audio/SFX/NPC/ChibidokiScream.wav" id="5_poeve"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iqdwe"]
 size = Vector3(2, 2, 0.2)
@@ -26,5 +27,8 @@ texture = ExtResource("3_ho3cx")
 [node name="Back" type="Sprite3D" parent="."]
 transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0.01, -0.6, 0)
 texture = ExtResource("4_t577f")
+
+[node name="CarCrashSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_poeve")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

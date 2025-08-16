@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var car_crash_sfx: AudioStreamPlayer3D = $CarCrashSFX
+
 @export var speed := 2.0
 @export var point_amount: float
 @export var scene_name: String
@@ -19,6 +21,8 @@ func _on_body_entered(body):
 	
 	if body.name == "Player":
 		triggered = true
+		
+		car_crash_sfx.play()
 		
 		GameManager.update_score(point_amount)
 		GameManager.update_hit_counts(scene_name)

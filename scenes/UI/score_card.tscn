@@ -1,0 +1,148 @@
+[gd_scene load_steps=8 format=3 uid="uid://ktmo8o3q2d3p"]
+
+[ext_resource type="Script" uid="uid://cpk6qg6uhhv0r" path="res://scripts/score_card.gd" id="1_68who"]
+[ext_resource type="Texture2D" uid="uid://cvis83pklbo35" path="res://assets/UI/ExitButton.png" id="3_2ypdh"]
+[ext_resource type="Texture2D" uid="uid://60x7vil2d0jo" path="res://assets/UI/ContinueButton.png" id="4_1xmfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpyqu"]
+bg_color = Color(0, 0, 0, 0.423529)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.937469, 0.772824, 0.446983, 1)
+
+[sub_resource type="Animation" id="Animation_4dstf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fsdyd"]
+resource_name = "expand_tilt_left_then_right"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dstf"]
+_data = {
+&"RESET": SubResource("Animation_4dstf"),
+&"expand_tilt_left_then_right": SubResource("Animation_fsdyd")
+}
+
+[node name="ScoreCard" type="CanvasLayer"]
+script = ExtResource("1_68who")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.666667, 0.666667)
+
+[node name="ScoreCard" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(0.631786, 0.941623, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_mpyqu")
+text = "
+
+Small Help Truck: 0
+Long Help Truck: 0
+Chonky Help Truck: 0
+NPC Grey Car: 0
+NPC Grey Car Good: 0
+VTuber Friend Mint: 0
+VTuber Friend Dooby: 0
+VTuber Friend Chibidoki: 0
+VTuber Friend Nimi: 0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 345.0
+offset_top = 598.0
+offset_right = 653.0
+offset_bottom = 716.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(154, 59)
+icon = ExtResource("3_2ypdh")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ExitButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dstf")
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 549.0
+offset_right = 1102.0
+offset_bottom = 757.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(304, 104)
+icon = ExtResource("4_1xmfn")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dstf")
+}
+
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_continue_button_mouse_exited"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

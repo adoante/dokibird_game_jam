@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmjbyt3q52pyw"]
+[gd_scene load_steps=6 format=3 uid="uid://cmjbyt3q52pyw"]
 
 [ext_resource type="Texture2D" uid="uid://c805ehesf71dh" path="res://assets/NPCs/GenericCars/NPCGreyCarFront.png" id="1_8477t"]
 [ext_resource type="Script" uid="uid://c6qt67ikqmra0" path="res://scripts/npc_car.gd" id="1_qpe34"]
 [ext_resource type="Texture2D" uid="uid://duihuj02t0xlh" path="res://assets/NPCs/GenericCars/NPCGreyCarBack.png" id="2_qpe34"]
+[ext_resource type="AudioStream" uid="uid://41bx7qyt20g7" path="res://assets/Audio/SFX/NPC/CarCrash.wav" id="4_lihvt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1x86t"]
 size = Vector3(2, 2, 0.2)
@@ -24,5 +25,9 @@ texture = ExtResource("1_8477t")
 [node name="Back" type="Sprite3D" parent="."]
 transform = Transform3D(-1.448e-06, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.448e-06, 0.01, -0.6, 0)
 texture = ExtResource("2_qpe34")
+
+[node name="CarCrashSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_lihvt")
+volume_db = -25.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

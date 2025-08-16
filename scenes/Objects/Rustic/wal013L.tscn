@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8sebwvtvasq1"]
+
+[ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/side_road_object.gd" id="1_fqigm"]
+[ext_resource type="Texture2D" uid="uid://dbeeljark0k65" path="res://assets/Textures/Rustic/wal013L.jpg" id="1_homc3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqigm"]
+size = Vector3(3.80835, 3.67383, 3.75293)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbglu"]
+albedo_texture = ExtResource("1_homc3")
+
+[node name="wal013L" type="Area3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_fqigm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fqigm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qbglu")
+size = Vector3(3.75586, 3.67676, 3.67969)

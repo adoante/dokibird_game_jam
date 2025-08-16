@@ -3,6 +3,7 @@ extends Area3D
 @export var speed := 2.0
 @export var point_amount: float
 @export var scene_name: String
+@onready var car_crash_sfx: AudioStreamPlayer3D = $CarCrashSFX
 
 var particles: Array[PackedScene]
 var triggered := false
@@ -20,6 +21,8 @@ func _on_body_entered(body):
 	
 	if body.name == "Player":
 		triggered = true
+		
+		car_crash_sfx.play()
 		
 		if GameManager.get_powerup_state() == GameManager.PowerUpState.BOOST or  GameManager.get_powerup_state() == GameManager.PowerUpState.LONG_NECK:
 			GameManager.update_score(100)

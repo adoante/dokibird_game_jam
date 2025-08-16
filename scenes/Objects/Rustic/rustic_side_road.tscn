@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6t4wb1cdguli"]
+
+[ext_resource type="PackedScene" uid="uid://c8sebwvtvasq1" path="res://scenes/Objects/Rustic/wal013L.tscn" id="1_ockc4"]
+[ext_resource type="PackedScene" uid="uid://cgmlddeii2ffv" path="res://scenes/Objects/Rustic/wal_048l.tscn" id="2_ysgtk"]
+[ext_resource type="PackedScene" uid="uid://1j27m8o2lteb" path="res://scenes/Objects/Rustic/wal_061l.tscn" id="3_tq3mv"]
+[ext_resource type="PackedScene" uid="uid://4ntpsrcvkcs3" path="res://scenes/Objects/Rustic/wal_110l.tscn" id="4_qvecj"]
+
+[node name="rustic_side_road" type="Node3D"]
+
+[node name="wal013L" parent="." instance=ExtResource("1_ockc4")]
+transform = Transform3D(-0.996661, 0, -8.71308e-08, 0, 0.996661, 0, 8.71308e-08, 0, -0.996661, -6.15022, -4.49343, -0.00531065)
+
+[node name="wal048L" parent="." instance=ExtResource("2_ysgtk")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, -2.31914, -4.38349, -0.00531065)
+
+[node name="wal061L" parent="." instance=ExtResource("3_tq3mv")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 1.82504, -3.6298, 0.102096)
+
+[node name="wal110L" parent="." instance=ExtResource("4_qvecj")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 5.7551, -4.14531, 4.42031)
+
+[node name="wal110L2" parent="." instance=ExtResource("4_qvecj")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 5.7591, -0.200803, -2.6407)
+
+[node name="wal110L3" parent="." instance=ExtResource("4_qvecj")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 5.7591, 3.73954, 2.637)
+
+[node name="wal110L4" parent="." instance=ExtResource("4_qvecj")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 5.7551, -4.14531, -0.33564)
+
+[node name="wal110L5" parent="." instance=ExtResource("4_qvecj")]
+transform = Transform3D(0.996661, 0, 0, 0, 0.996661, 0, 0, 0, 0.996661, 5.7551, -0.227407, 1.97982)

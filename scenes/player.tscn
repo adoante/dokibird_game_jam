@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://d20vw6dyu8cnm"]
+[gd_scene load_steps=14 format=3 uid="uid://d20vw6dyu8cnm"]
 
 [ext_resource type="Script" uid="uid://balqspxq41sws" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dk16iyy825nxf" path="res://assets/Player/Dashboard.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dn47wp4rm2erl" path="res://assets/Player/Wheel.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cr4dj0v7kglxu" path="res://assets/Player/DokiCar3rdFront.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://c7dr58a3rd5dg" path="res://assets/Player/DokiCar3rdBack.png" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://ur4rgxdq4pf0" path="res://assets/Audio/SFX/Player/CarEngine.wav" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
 
@@ -89,7 +90,7 @@ script = ExtResource("1_g2els")
 transform = Transform3D(-1.31134e-07, 3, -1.31134e-07, 0, -1.31134e-07, -3, -3, -1.31134e-07, 5.73206e-15, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_dqkch")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="1stPersonCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75525)
 
 [node name="FirstPersonSprite3D" type="Sprite3D" parent="."]
@@ -128,3 +129,12 @@ one_shot = true
 [node name="BoostMeterTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="3rdPersonCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.989075, 0.147412, 0, -0.147412, 0.989075, 0, 12, 37.4465)
+fov = 35.0
+
+[node name="EngineSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_tuyoq")
+volume_db = -30.0
+autoplay = true

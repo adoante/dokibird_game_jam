@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfxxye2fvijf1"]
+
+[ext_resource type="Texture2D" uid="uid://bfjwq42gw4nre" path="res://assets/UI/StartTheGame1.png" id="1_ej6ef"]
+[ext_resource type="Script" uid="uid://dtocu0svw2wfk" path="res://scripts/story_cards.gd" id="1_k4kgp"]
+[ext_resource type="Texture2D" uid="uid://60x7vil2d0jo" path="res://assets/UI/ContinueButton.png" id="2_gt8jg"]
+
+[sub_resource type="Animation" id="Animation_4dstf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fsdyd"]
+resource_name = "expand_tilt_left_then_right"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dstf"]
+_data = {
+&"RESET": SubResource("Animation_4dstf"),
+&"expand_tilt_left_then_right": SubResource("Animation_fsdyd")
+}
+
+[node name="Story_1" type="CanvasLayer"]
+script = ExtResource("1_k4kgp")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_ej6ef")
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -177.0
+offset_right = 517.0
+offset_bottom = 31.0001
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(304, 104)
+icon = ExtResource("2_gt8jg")
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dstf")
+}
+
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_continue_button_mouse_exited"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

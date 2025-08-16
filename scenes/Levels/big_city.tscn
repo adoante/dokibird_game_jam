@@ -1,0 +1,380 @@
+[gd_scene load_steps=38 format=3 uid="uid://dhhie433hik1k"]
+
+[ext_resource type="PackedScene" uid="uid://74ry4bnvshrn" path="res://scenes/Backgrounds/sky_4.tscn" id="1_orfbr"]
+[ext_resource type="PackedScene" uid="uid://d20vw6dyu8cnm" path="res://scenes/player.tscn" id="1_ptqdj"]
+[ext_resource type="PackedScene" uid="uid://dbwab71tgcmou" path="res://scenes/despawn.tscn" id="2_orfbr"]
+[ext_resource type="PackedScene" uid="uid://eu482755d0ml" path="res://scenes/ui.tscn" id="3_g62jr"]
+[ext_resource type="Texture2D" uid="uid://dik66mookpkib" path="res://assets/Textures/DownTown/Evilroad1.png" id="4_qwemg"]
+[ext_resource type="Texture2D" uid="uid://cn278vwv7xki4" path="res://assets/Textures/DownTown/Evilroad2.jpg" id="5_e72b3"]
+[ext_resource type="Texture2D" uid="uid://cxm6uy7gu0xt6" path="res://assets/Textures/BigCity/Road1.png" id="5_g62jr"]
+[ext_resource type="Texture2D" uid="uid://cww3xb2sp83eq" path="res://assets/Textures/BigCity/Road2.jpg" id="6_3ewdp"]
+[ext_resource type="PackedScene" uid="uid://dfnuksnyuwh5b" path="res://scenes/object_spawner.tscn" id="9_nmklx"]
+[ext_resource type="PackedScene" uid="uid://cmjbyt3q52pyw" path="res://scenes/NPCs/GenericCars/npc_car_grey.tscn" id="10_nl1oj"]
+[ext_resource type="PackedScene" uid="uid://rt4wqanb7qcm" path="res://scenes/NPCs/VTuberFriends/mint_v_tuber_car.tscn" id="11_m0ugl"]
+[ext_resource type="PackedScene" uid="uid://rciaqdt8duex" path="res://scenes/NPCs/VTuberFriends/dooby_v_tuber_car.tscn" id="12_oa2ea"]
+[ext_resource type="PackedScene" uid="uid://i7c1dx6710gl" path="res://scenes/NPCs/VTuberFriends/chibidoki_v_tuber_car.tscn" id="13_ul3h3"]
+[ext_resource type="PackedScene" uid="uid://d08lww36rwmvh" path="res://scenes/NPCs/VTuberFriends/nimi_v_tuber_car.tscn" id="14_homti"]
+[ext_resource type="PackedScene" uid="uid://i4omrfttutyn" path="res://scenes/Enemies/small_help.tscn" id="15_mxpaa"]
+[ext_resource type="PackedScene" uid="uid://dtgkisjopgyi6" path="res://scenes/Enemies/long_help.tscn" id="16_iwwqr"]
+[ext_resource type="PackedScene" uid="uid://ccjo6ljxk2gh8" path="res://scenes/Enemies/chonky_help.tscn" id="17_d4tbl"]
+[ext_resource type="PackedScene" uid="uid://db8p0p1fd0x8d" path="res://scenes/Objects/sample_ramp.tscn" id="18_mhtml"]
+[ext_resource type="PackedScene" uid="uid://7m5jowu8bupr" path="res://scenes/Objects/gas_station.tscn" id="19_2jsd6"]
+[ext_resource type="PackedScene" uid="uid://dqmk7jehsdfms" path="res://scenes/Objects/DownTown/downtown_side_road.tscn" id="22_j8hmp"]
+[ext_resource type="PackedScene" uid="uid://dvw5kw8vknn0x" path="res://scenes/Objects/BigCity/lamp.tscn" id="22_nmklx"]
+[ext_resource type="PackedScene" uid="uid://crolftx3vw761" path="res://scenes/Objects/BigCity/mailbox.tscn" id="23_m0ugl"]
+[ext_resource type="PackedScene" uid="uid://djudtrfcia0pg" path="res://scenes/Objects/BigCity/bigcity_side_road.tscn" id="23_nl1oj"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nmklx"]
+plane = Plane(-1, 1, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwwqr"]
+albedo_texture = ExtResource("5_g62jr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqu6d"]
+albedo_texture = ExtResource("4_qwemg")
+uv1_scale = Vector3(1, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl1oj"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctcsb"]
+albedo_texture = ExtResource("5_e72b3")
+uv1_scale = Vector3(1, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3s5n"]
+albedo_texture = ExtResource("6_3ewdp")
+uv1_scale = Vector3(1, 64, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6208"]
+albedo_texture = ExtResource("6_3ewdp")
+uv1_scale = Vector3(1, 64, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0ugl"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa2ea"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul3h3"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_homti"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxpaa"]
+albedo_texture = ExtResource("6_3ewdp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ewdp"]
+albedo_texture = ExtResource("5_g62jr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geppu"]
+albedo_texture = ExtResource("5_g62jr")
+
+[node name="BigCity" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_orfbr")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 24.4609, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 6.5, 0)
+visible = false
+fov = 35.0
+
+[node name="Player" parent="." instance=ExtResource("1_ptqdj")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 1.13003, 2.57419, 0)
+
+[node name="Despawn" parent="." instance=ExtResource("2_orfbr")]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, -75, 10, 0)
+
+[node name="BackBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.578414, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_nmklx")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
+
+[node name="FrontBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 136.346, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_nmklx")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
+
+[node name="UI" parent="." instance=ExtResource("3_g62jr")]
+
+[node name="RoadHolder" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0542927, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_iwwqr")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_cqu6d")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.192165, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_nl1oj")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, -0.0923424, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_n3s5n")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, -0.0923424, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_a6208")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.6166, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_m0ugl")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 189.453, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_oa2ea")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189.443, 0.0344048, -7.84158)
+material_override = SubResource("StandardMaterial3D_ul3h3")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 94.6351, 0.0344048, -7.82953)
+material_override = SubResource("StandardMaterial3D_homti")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.200699, 0.0344048, -7.81931)
+material_override = SubResource("StandardMaterial3D_mxpaa")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_ctcsb")
+
+[node name="RoadHolder2" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.6465, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_3ewdp")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_cqu6d")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 94.6084, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_n3s5n")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 102.338, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_a6208")
+size = Vector3(1, 0.25, 2)
+
+[node name="RoadHolder3" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.335, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_geppu")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_cqu6d")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 189.296, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_n3s5n")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 189.296, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_a6208")
+size = Vector3(1, 0.25, 2)
+
+[node name="SideRoadHolder" type="Node" parent="."]
+
+[node name="bigcity_side_road" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5294, 1, -35)
+
+[node name="bigcity_side_road2" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.804, 1, -35)
+
+[node name="bigcity_side_road3" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.697, 1, -35)
+
+[node name="bigcity_side_road4" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5294, 1, 35)
+
+[node name="bigcity_side_road5" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.804, 1, 35)
+
+[node name="bigcity_side_road6" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.697, 1, 35)
+
+[node name="bigcity_side_road7" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(0.0264387, 0, -0.99965, 0, 1, 0, 0.99965, 0, 0.0264387, 484.602, 1, -35)
+
+[node name="bigcity_side_road8" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(-0.162362, 0, -0.986731, 0, 1, 0, 0.986731, 0, -0.162362, 484.602, 1, 63.7238)
+
+[node name="bigcity_side_road9" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(0.221361, 0, -0.975192, 0, 1, 0, 0.975192, 0, 0.221361, 484.602, 1, -137.205)
+
+[node name="bigcity_side_road10" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(0.0535734, 0, 0.998564, 0, 1, 0, -0.998564, 0, 0.0535734, 425.062, 1, -35)
+
+[node name="bigcity_side_road11" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(0.424974, 0, 0.905206, 0, 1, 0, -0.905206, 0, 0.424974, 448.641, 1, -111.228)
+
+[node name="bigcity_side_road12" parent="SideRoadHolder" instance=ExtResource("23_nl1oj")]
+transform = Transform3D(0.31694, 0, 0.948445, 0, 1, 0, -0.948445, 0, 0.31694, 442.519, 1, 34.7966)
+
+[node name="SpawnerHolder" type="Node" parent="."]
+
+[node name="CarSpawners" type="Node" parent="SpawnerHolder"]
+
+[node name="GreyCarSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3976, 0, 60.5599)
+object_to_spawn = ExtResource("10_nl1oj")
+spawn_interval = 7.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="MintVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8829, 0, 50.6043)
+object_to_spawn = ExtResource("11_m0ugl")
+spawn_interval = 5.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="DoobyVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8829, 0, 50.6043)
+object_to_spawn = ExtResource("12_oa2ea")
+spawn_interval = 6.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="ChibidokiVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8829, 0, 50.6043)
+object_to_spawn = ExtResource("13_ul3h3")
+spawn_interval = 7.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="NimiVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6462, 0, 50.6043)
+object_to_spawn = ExtResource("14_homti")
+spawn_interval = 8.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="SmallHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4048, 4.15896, 63.3708)
+object_to_spawn = ExtResource("15_mxpaa")
+spawn_interval = 4.25
+initial_position = Vector3(100, 2, 0)
+
+[node name="LongHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7239, 4.15896, 63.3708)
+object_to_spawn = ExtResource("16_iwwqr")
+spawn_interval = 4.5
+initial_position = Vector3(100, 2, 0)
+
+[node name="ChonkyHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7757, 8.31792, 63.318)
+object_to_spawn = ExtResource("17_d4tbl")
+spawn_interval = 5.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="RoadObjectSpawner" type="Node" parent="SpawnerHolder"]
+
+[node name="RampSpawner" parent="SpawnerHolder/RoadObjectSpawner" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0695, 5.99002, 63.3221)
+object_to_spawn = ExtResource("18_mhtml")
+spawn_interval = 1.5
+initial_position = Vector3(100, 0, 0)
+
+[node name="GasStationSpawner" parent="SpawnerHolder/RoadObjectSpawner" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7586, 0, 52.9395)
+object_to_spawn = ExtResource("19_2jsd6")
+spawn_interval = 60.0
+initial_position = Vector3(100, 2, 0)
+random_z_axis = false
+
+[node name="BuildingSpawners" type="Node" parent="SpawnerHolder"]
+
+[node name="SideRoadSpawmer" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("22_j8hmp")
+spawn_interval = 20.0
+initial_position = Vector3(80, 10, 25)
+random_z_axis = false
+rotate_by = -45.0
+
+[node name="SideRoadSpawmer2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("22_j8hmp")
+spawn_interval = 60.0
+initial_position = Vector3(80, 10, 25)
+random_z_axis = false
+rotate_by = 225.0
+
+[node name="SideRoadSpawmer3" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("22_j8hmp")
+spawn_interval = 20.0
+initial_position = Vector3(80, 10, -25)
+random_z_axis = false
+rotate_by = 90.0
+
+[node name="SideRoadSpawmer4" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("22_j8hmp")
+spawn_interval = 60.0
+initial_position = Vector3(80, 10, -25)
+random_z_axis = false
+rotate_by = 90.0
+
+[node name="LampSpawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8122, 2, 62.4137)
+object_to_spawn = ExtResource("22_nmklx")
+spawn_interval = 17.0
+initial_position = Vector3(100, 2, 12)
+random_z_axis = false
+rotate_by = 90.0
+
+[node name="LampSpawner2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6859, 2, 62.4137)
+object_to_spawn = ExtResource("22_nmklx")
+spawn_interval = 17.0
+initial_position = Vector3(100, 2, -12)
+random_z_axis = false
+rotate_by = -90.0
+
+[node name="MailboxSpawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8122, 2, 62.4137)
+object_to_spawn = ExtResource("23_m0ugl")
+spawn_interval = 23.0
+initial_position = Vector3(100, 2, 12)
+random_z_axis = false
+rotate_by = 70.0
+
+[node name="MailboxSpawner2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_nmklx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6859, 2, 62.4137)
+object_to_spawn = ExtResource("23_m0ugl")
+spawn_interval = 23.0
+initial_position = Vector3(100, 2, -12)
+random_z_axis = false
+rotate_by = -70.0

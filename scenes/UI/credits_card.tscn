@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://yogi0472sys3"]
+
+[ext_resource type="Script" uid="uid://djhodwetl23q7" path="res://scripts/credits_card.gd" id="1_pued8"]
+[ext_resource type="Texture2D" uid="uid://vprlfbsoiklh" path="res://assets/UI/YouWin2.png" id="2_pued8"]
+[ext_resource type="Texture2D" uid="uid://60x7vil2d0jo" path="res://assets/UI/ContinueButton.png" id="3_jpnfb"]
+[ext_resource type="Texture2D" uid="uid://cvis83pklbo35" path="res://assets/UI/ExitButton.png" id="4_tcw6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpyqu"]
+bg_color = Color(0, 0, 0, 0.423529)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.937469, 0.772824, 0.446983, 1)
+
+[sub_resource type="Animation" id="Animation_4dstf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fsdyd"]
+resource_name = "expand_tilt_left_then_right"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dstf"]
+_data = {
+&"RESET": SubResource("Animation_4dstf"),
+&"expand_tilt_left_then_right": SubResource("Animation_fsdyd")
+}
+
+[node name="CreditsCard" type="CanvasLayer"]
+script = ExtResource("1_pued8")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("2_pued8")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.00138889
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_mpyqu")
+text = "Programmer: AdoAnte
+Artist: BigusBoygus
+
+Sound Credits:
+Car Crash (with Glass) by magnuswaker -- https://freesound.org/s/592388/ -- License: Creative Commons 0
+Car Honking by MicktheMicGuy -- https://freesound.org/s/434878/ -- License: Creative Commons 0
+Car11.wav by Jouhis -- https://freesound.org/s/664652/ -- License: Creative Commons 0
+Cheer 2.wav by jayfrosting -- https://freesound.org/s/333404/ -- License: Creative Commons 0
+Nitro Activation by strexet -- https://freesound.org/s/404333/ -- License: Creative Commons 0
+menu click by Leszek_Szary -- https://freesound.org/s/146721/ -- License: Creative Commons 0
+Yippee - Multi-Take by Sadiquecat -- https://freesound.org/s/810904/ -- License: Creative Commons 0
+Engine.wav by CogFireStudios -- https://freesound.org/s/421001/ -- License: Creative Commons 0
+Music by @White Bat Audio https://karlcasey.bandcamp.com/album/white-bat-iii 
+
+Textures:
+Marlin Studios - Seamless Textures 5 - Downtown Surfaces & Signs (Used with Licence)
+MIXA IMAGE LIBRARY Vol.1 - Sea and Sky Brilliant Collection (Used with Licence)
+"
+horizontal_alignment = 1
+justification_flags = 171
+metadata/_edit_use_anchors_ = true
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_left = 437.0
+offset_top = 504.0
+offset_right = 1045.0
+offset_bottom = 712.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(304, 104)
+icon = ExtResource("3_jpnfb")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dstf")
+}
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 288.0
+offset_top = 553.0
+offset_right = 596.0
+offset_bottom = 671.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(154, 59)
+icon = ExtResource("4_tcw6r")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ExitButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4dstf")
+}
+
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_continue_button_mouse_exited"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_credits_button_mouse_exited"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

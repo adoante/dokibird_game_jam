@@ -19,10 +19,23 @@ extends CharacterBody3D
 @export var input_down  : String = "move_down"
 @export var input_jump  : String = "jump"
 
+@onready var engine_sfx: AudioStreamPlayer3D = $EngineSFX
+
+@onready var third_person_camera: Camera3D = $"3rdPersonCamera"
+@onready var first_person_camera: Camera3D = $"1stPersonCamera"
+
+@export var cameras: Array[Camera3D] = []
+var camera_current_index := 1
+
 var move_speed : float = 0.0
 var last_powerup_state: GameManager.PowerUpState
 
 func _ready() -> void:
+	cameras = [third_person_camera, first_person_camera]
+	
+	if cameras.size() > 0:
+		_activate_camera(camera_current_index)
+	
 	switch_to_first_person()
 	move_speed = base_speed
 	_setup_timers()
@@ -82,13 +95,13 @@ func switch_to_first_person() -> void:
 	first_person_sprite_3d.visible = true
 	third_person_front_sprite_3d.visible = false
 	third_person_back_sprite_3d.visible = false
-	get_parent().switch_camera(1)
+	switch_camera(1)
 
 func switch_to_third_person() -> void:
 	first_person_sprite_3d.visible = false
 	third_person_front_sprite_3d.visible = true
 	third_person_back_sprite_3d.visible = true
-	get_parent().switch_camera(0)
+	switch_camera(0)
 
 func basic_movement(delta: float) -> void:
 	if Input.is_action_just_pressed(input_jump) and is_on_floor():
@@ -109,3 +122,23 @@ func basic_movement(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, move_speed)
 
 	move_and_slide()
+	
+func _input(event):
+	if event.is_action_pressed("switch_camera"):
+		camera_current_index = (camera_current_index + 1) % cameras.size()
+		_activate_camera(camera_current_index)
+
+func _activate_camera(index: int):
+	if index < 0 or index >= cameras.size():
+		return
+		
+	for i in range(cameras.size()):
+		cameras[i].current = (i == index)
+
+	if index == 0:
+		GameManager.set_powerup_state(GameManager.PowerUpState.LONG_NECK)
+	else:
+		GameManager.set_powerup_state(GameManager.PowerUpState.REGULAR)
+		
+func switch_camera(camera: int):
+	_activate_camera(camera)

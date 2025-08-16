@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://7m5jowu8bupr"]
+
+[ext_resource type="Script" uid="uid://wtd2qdd37o01" path="res://scripts/gas_station.gd" id="1_tl7qp"]
+[ext_resource type="Texture2D" uid="uid://4n2uvbvnw4rm" path="res://assets/Objects/GasStation.png" id="2_0hkip"]
+[ext_resource type="Texture2D" uid="uid://b0gfmfwbbudma" path="res://assets/Objects/GasStationFood.png" id="3_5buvv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1x86t"]
+size = Vector3(31.6272, 14.7477, 0.2)
+
+[node name="GasStation" type="Area3D"]
+script = ExtResource("1_tl7qp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -6.98286e-12, 4.87478, -0.000585556)
+shape = SubResource("BoxShape3D_1x86t")
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.0203104, 0)
+texture = ExtResource("2_0hkip")
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 3.04258, 0.0203104, 0)
+texture = ExtResource("3_5buvv")
+
+[node name="Front2" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.0203104, -7.80408)
+texture = ExtResource("2_0hkip")
+
+[node name="Back2" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 3.04258, 0.0203104, -7.80408)
+texture = ExtResource("3_5buvv")
+
+[node name="Front3" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.0203104, 6.90903)
+texture = ExtResource("2_0hkip")
+
+[node name="Back3" type="Sprite3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 3.04258, 0.0203104, 7.16266)
+texture = ExtResource("3_5buvv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

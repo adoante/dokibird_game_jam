@@ -8,4 +8,4 @@ func _process(_delta: float) -> void:
 	var dragoon_time_left = GameManager.get_dragoon_meter_time_left()
 	
 	boost_meter_timer.text = str(int(boost_time_left))
-	dragoon_meter_timer.text = "Dragoon Time: " + str(int(dragoon_time_left))
+	dragoon_meter_timer.text = str(int(dragoon_time_left))

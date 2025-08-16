@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3uruylmpvyhc"]
+
+[ext_resource type="Texture2D" uid="uid://b4vhjjgxid6ci" path="res://assets/Textures/BigCity/skyr37L.jpg" id="1_88kxq"]
+[ext_resource type="Script" uid="uid://c62act7ljku3g" path="res://scripts/side_road_object.gd" id="1_aq6xj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq6xj"]
+size = Vector3(25.4766, 109.896, 23.7705)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srr4h"]
+albedo_texture = ExtResource("1_88kxq")
+
+[node name="skyr37L" type="Area3D"]
+script = ExtResource("1_aq6xj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_aq6xj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_srr4h")
+size = Vector3(25.4668, 110.946, 23.7764)

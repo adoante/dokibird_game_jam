@@ -1,0 +1,463 @@
+[gd_scene load_steps=36 format=3 uid="uid://dnqadg4ec4qlb"]
+
+[ext_resource type="PackedScene" uid="uid://d07xnsvqbsio3" path="res://scenes/Backgrounds/sky_3.tscn" id="1_nf0nd"]
+[ext_resource type="PackedScene" uid="uid://d20vw6dyu8cnm" path="res://scenes/player.tscn" id="2_xu2op"]
+[ext_resource type="PackedScene" uid="uid://dbwab71tgcmou" path="res://scenes/despawn.tscn" id="3_nf0nd"]
+[ext_resource type="PackedScene" uid="uid://eu482755d0ml" path="res://scenes/ui.tscn" id="4_8mygb"]
+[ext_resource type="Texture2D" uid="uid://baomukp5f6i7e" path="res://assets/Textures/Rustic/Dirtroad.jpg" id="5_c3qw8"]
+[ext_resource type="Texture2D" uid="uid://dik66mookpkib" path="res://assets/Textures/DownTown/Evilroad1.png" id="6_fviex"]
+[ext_resource type="Texture2D" uid="uid://cn278vwv7xki4" path="res://assets/Textures/DownTown/Evilroad2.jpg" id="7_0wphg"]
+[ext_resource type="Texture2D" uid="uid://cww3xb2sp83eq" path="res://assets/Textures/BigCity/Road2.jpg" id="8_v0un4"]
+[ext_resource type="PackedScene" uid="uid://dfnuksnyuwh5b" path="res://scenes/object_spawner.tscn" id="9_2bdbs"]
+[ext_resource type="PackedScene" uid="uid://b6t4wb1cdguli" path="res://scenes/Objects/Rustic/rustic_side_road.tscn" id="9_xu2op"]
+[ext_resource type="PackedScene" uid="uid://cmjbyt3q52pyw" path="res://scenes/NPCs/GenericCars/npc_car_grey.tscn" id="10_8bug2"]
+[ext_resource type="PackedScene" uid="uid://rt4wqanb7qcm" path="res://scenes/NPCs/VTuberFriends/mint_v_tuber_car.tscn" id="11_cvatp"]
+[ext_resource type="PackedScene" uid="uid://rciaqdt8duex" path="res://scenes/NPCs/VTuberFriends/dooby_v_tuber_car.tscn" id="12_leaen"]
+[ext_resource type="PackedScene" uid="uid://i7c1dx6710gl" path="res://scenes/NPCs/VTuberFriends/chibidoki_v_tuber_car.tscn" id="13_hnk16"]
+[ext_resource type="PackedScene" uid="uid://d08lww36rwmvh" path="res://scenes/NPCs/VTuberFriends/nimi_v_tuber_car.tscn" id="14_ukxs2"]
+[ext_resource type="PackedScene" uid="uid://i4omrfttutyn" path="res://scenes/Enemies/small_help.tscn" id="15_nww3l"]
+[ext_resource type="PackedScene" uid="uid://dtgkisjopgyi6" path="res://scenes/Enemies/long_help.tscn" id="16_ooi46"]
+[ext_resource type="PackedScene" uid="uid://ccjo6ljxk2gh8" path="res://scenes/Enemies/chonky_help.tscn" id="17_vtlsg"]
+[ext_resource type="PackedScene" uid="uid://db8p0p1fd0x8d" path="res://scenes/Objects/sample_ramp.tscn" id="18_ueakb"]
+[ext_resource type="PackedScene" uid="uid://7m5jowu8bupr" path="res://scenes/Objects/gas_station.tscn" id="19_ifb5r"]
+[ext_resource type="PackedScene" uid="uid://d3jn7of4om7gn" path="res://scenes/Objects/Rustic/electric_totem_3.tscn" id="21_nf0nd"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7x1hw"]
+plane = Plane(-1, 1, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl5c2"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3ubj"]
+albedo_texture = ExtResource("6_fviex")
+uv1_scale = Vector3(1, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqggt"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_482va"]
+albedo_texture = ExtResource("7_0wphg")
+uv1_scale = Vector3(1, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o11pb"]
+albedo_texture = ExtResource("8_v0un4")
+uv1_scale = Vector3(1, 64, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrluw"]
+albedo_texture = ExtResource("8_v0un4")
+uv1_scale = Vector3(1, 64, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dw31"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy83o"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyi86"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngkon"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phhic"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlsex"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dskkg"]
+albedo_texture = ExtResource("5_c3qw8")
+
+[node name="Rustic" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_nf0nd")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 24.4609, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 6.5, 0)
+visible = false
+fov = 35.0
+
+[node name="Player" parent="." instance=ExtResource("2_xu2op")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 1.13003, 2.57419, 0)
+
+[node name="Despawn" parent="." instance=ExtResource("3_nf0nd")]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, -75, 10, 0)
+
+[node name="BackBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.578414, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_7x1hw")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
+
+[node name="FrontBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 136.346, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_7x1hw")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
+
+[node name="UI" parent="." instance=ExtResource("4_8mygb")]
+
+[node name="RoadHolder" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0542927, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_jl5c2")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_k3ubj")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.192165, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_xqggt")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, -0.0923424, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_o11pb")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, -0.0923424, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_yrluw")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.6166, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_2dw31")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 189.453, 0.0344048, 7.71149)
+material_override = SubResource("StandardMaterial3D_vy83o")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189.443, 0.0344048, -7.84158)
+material_override = SubResource("StandardMaterial3D_fyi86")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 94.6351, 0.0344048, -7.82953)
+material_override = SubResource("StandardMaterial3D_ngkon")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="RoadHolder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.200699, 0.0344048, -7.81931)
+material_override = SubResource("StandardMaterial3D_phhic")
+use_collision = true
+size = Vector3(7.734, 1, 94.854)
+material = SubResource("StandardMaterial3D_482va")
+
+[node name="RoadHolder2" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.6465, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_hlsex")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_k3ubj")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 94.6084, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_o11pb")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder2"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 102.338, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_yrluw")
+size = Vector3(1, 0.25, 2)
+
+[node name="RoadHolder3" type="Node" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.335, 0.0346985, -0.0487576)
+material_override = SubResource("StandardMaterial3D_dskkg")
+use_collision = true
+size = Vector3(95.0022, 1, 7.80468)
+material = SubResource("StandardMaterial3D_k3ubj")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 189.296, 0.17604, -12.3822)
+material_override = SubResource("StandardMaterial3D_o11pb")
+size = Vector3(1, 0.25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RoadHolder3"]
+transform = Transform3D(103.661, 0, 0, 0, 5.09496, 0, 0, 0, 1, 189.296, 0.17604, 12.5272)
+material_override = SubResource("StandardMaterial3D_yrluw")
+size = Vector3(1, 0.25, 2)
+
+[node name="SideRoadHolder" type="Node" parent="."]
+
+[node name="rustic_side_road" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2028, 1, 25)
+
+[node name="rustic_side_road2" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267263, 1, 25)
+
+[node name="rustic_side_road3" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6261, 1, 25)
+
+[node name="rustic_side_road4" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6058, 1, 25)
+
+[node name="rustic_side_road5" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7753, 1, 25)
+
+[node name="rustic_side_road6" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5369, 1, 25)
+
+[node name="rustic_side_road7" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.7017, 1, 25)
+
+[node name="rustic_side_road8" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.6372, 1, 25)
+
+[node name="rustic_side_road9" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.531, 1, 25)
+
+[node name="rustic_side_road10" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.51, 1, 25)
+
+[node name="rustic_side_road19" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2028, 1, -25)
+
+[node name="rustic_side_road20" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267263, 1, -25)
+
+[node name="rustic_side_road21" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6261, 1, -25)
+
+[node name="rustic_side_road22" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6058, 1, -25)
+
+[node name="rustic_side_road23" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7753, 1, -25)
+
+[node name="rustic_side_road24" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5369, 1, -25)
+
+[node name="rustic_side_road25" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.7017, 1, -25)
+
+[node name="rustic_side_road26" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.6372, 1, -25)
+
+[node name="rustic_side_road27" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.531, 1, -25)
+
+[node name="rustic_side_road28" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.51, 1, -25)
+
+[node name="rustic_side_road37" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 309.497, 1.44748, -35.5907)
+
+[node name="rustic_side_road38" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 314.908, 1.44748, -20.3533)
+
+[node name="rustic_side_road39" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 320.516, 1.44748, -4.55777)
+
+[node name="rustic_side_road40" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.224696, 0, -0.974429, 0, 1, 0, 0.974429, 0, -0.224696, 316.875, 1.44748, -11.4964)
+
+[node name="rustic_side_road41" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.224696, 0, -0.974429, 0, 1, 0, 0.974429, 0, -0.224696, 313.242, 1.44748, 4.25951)
+
+[node name="rustic_side_road42" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.224696, 0, -0.974429, 0, 1, 0, 0.974429, 0, -0.224696, 309.476, 1.44748, 20.5926)
+
+[node name="rustic_side_road43" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.0363646, 0, -0.999339, 0, 1, 0, 0.999339, 0, 0.0363646, 304.06, 1.44748, -21.2337)
+
+[node name="rustic_side_road44" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.0363646, 0, -0.999339, 0, 1, 0, 0.999339, 0, 0.0363646, 304.648, 1.44748, -5.07494)
+
+[node name="rustic_side_road45" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.0363646, 0, -0.999339, 0, 1, 0, 0.999339, 0, 0.0363646, 305.258, 1.44748, 11.6756)
+
+[node name="rustic_side_road46" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.17839, 0, -0.98396, 0, 1, 0, 0.98396, 0, -0.17839, 302.013, 1.44748, -36.7083)
+
+[node name="rustic_side_road47" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.17839, 0, -0.98396, 0, 1, 0, 0.98396, 0, -0.17839, 299.128, 1.44748, -20.7982)
+
+[node name="rustic_side_road48" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(-0.17839, 0, -0.98396, 0, 1, 0, 0.98396, 0, -0.17839, 296.138, 1.44748, -4.30544)
+
+[node name="rustic_side_road49" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 296.142, 1.44748, 6.62888)
+
+[node name="rustic_side_road50" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 301.552, 1.44748, 21.8663)
+
+[node name="rustic_side_road51" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(0.334596, 0, -0.942362, 0, 1, 0, 0.942362, 0, 0.334596, 307.16, 1.44748, 37.6618)
+
+[node name="rustic_side_road11" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.526, 1, 25)
+
+[node name="rustic_side_road12" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.42, 1, 25)
+
+[node name="rustic_side_road13" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.399, 1, 25)
+
+[node name="rustic_side_road29" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.526, 1, -25)
+
+[node name="rustic_side_road30" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.42, 1, -25)
+
+[node name="rustic_side_road31" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.399, 1, -25)
+
+[node name="rustic_side_road14" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.83, 1, 25)
+
+[node name="rustic_side_road15" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.724, 1, 25)
+
+[node name="rustic_side_road16" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.703, 1, 25)
+
+[node name="rustic_side_road32" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.83, 1, -25)
+
+[node name="rustic_side_road33" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.724, 1, -25)
+
+[node name="rustic_side_road34" parent="SideRoadHolder" instance=ExtResource("9_xu2op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.703, 1, -25)
+
+[node name="SpawnerHolder" type="Node" parent="."]
+
+[node name="CarSpawners" type="Node" parent="SpawnerHolder"]
+
+[node name="GreyCarSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3976, 0, 60.5599)
+object_to_spawn = ExtResource("10_8bug2")
+spawn_interval = 7.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="MintVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8829, 0, 50.6043)
+object_to_spawn = ExtResource("11_cvatp")
+spawn_interval = 5.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="DoobyVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8829, 0, 50.6043)
+object_to_spawn = ExtResource("12_leaen")
+spawn_interval = 6.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="ChibidokiVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8829, 0, 50.6043)
+object_to_spawn = ExtResource("13_hnk16")
+spawn_interval = 7.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="NimiVTuberSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6462, 0, 50.6043)
+object_to_spawn = ExtResource("14_ukxs2")
+spawn_interval = 8.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="SmallHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4048, 4.15896, 63.3708)
+object_to_spawn = ExtResource("15_nww3l")
+spawn_interval = 4.25
+initial_position = Vector3(100, 2, 0)
+
+[node name="LongHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7239, 4.15896, 63.3708)
+object_to_spawn = ExtResource("16_ooi46")
+spawn_interval = 4.5
+initial_position = Vector3(100, 2, 0)
+
+[node name="ChonkyHelpSpawner" parent="SpawnerHolder/CarSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7757, 8.31792, 63.318)
+object_to_spawn = ExtResource("17_vtlsg")
+spawn_interval = 5.0
+initial_position = Vector3(100, 2, 0)
+
+[node name="RoadObjectSpawner" type="Node" parent="SpawnerHolder"]
+
+[node name="RampSpawner" parent="SpawnerHolder/RoadObjectSpawner" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0695, 5.99002, 63.3221)
+object_to_spawn = ExtResource("18_ueakb")
+spawn_interval = 1.5
+initial_position = Vector3(100, 0, 0)
+
+[node name="GasStationSpawner" parent="SpawnerHolder/RoadObjectSpawner" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7586, 0, 52.9395)
+object_to_spawn = ExtResource("19_ifb5r")
+spawn_interval = 60.0
+initial_position = Vector3(100, 2, 0)
+random_z_axis = false
+
+[node name="BuildingSpawners" type="Node" parent="SpawnerHolder"]
+
+[node name="SideRoadSpawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("9_xu2op")
+spawn_interval = 10.0
+initial_position = Vector3(80, 1, 25)
+random_z_axis = false
+
+[node name="SideRoadSpawner2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("9_xu2op")
+spawn_interval = 18.0
+initial_position = Vector3(80, 1, 25)
+random_z_axis = false
+
+[node name="SideRoadSpawner3" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("9_xu2op")
+spawn_interval = 10.0
+initial_position = Vector3(80, 1, -25)
+random_z_axis = false
+
+[node name="SideRoadSpawner4" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
+object_to_spawn = ExtResource("9_xu2op")
+spawn_interval = 18.0
+initial_position = Vector3(80, 1, -25)
+random_z_axis = false
+
+[node name="ElectricTotem3Spawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8122, 2, 62.4137)
+object_to_spawn = ExtResource("21_nf0nd")
+spawn_interval = 7.0
+initial_position = Vector3(100, 0, 12)
+random_z_axis = false
+rotate_by = 90.0
+
+[node name="ElectricTotem3Spawner2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("9_2bdbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6859, 2, 62.4137)
+object_to_spawn = ExtResource("21_nf0nd")
+spawn_interval = 7.0
+initial_position = Vector3(100, 0, -12)
+random_z_axis = false
+rotate_by = -90.0

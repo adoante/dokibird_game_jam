@@ -1,7 +1,10 @@
 extends Area3D
+
 @onready var front: Sprite3D = $Front
 @onready var back: Sprite3D = $Back
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bird_get_sfx: AudioStreamPlayer3D = $BirdGetSFX
+
 @export var animations: Array[String] = ["yeet_1", "yeet_2", "yeet_3"]
 @export var particles: PackedScene
 @export var speed := 2.0
@@ -32,6 +35,8 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	if body.name == "Player":
 		triggered = true
+
+		bird_get_sfx.play()
 
 		GameManager.update_score(point_amount)
 		GameManager.update_combo_meter(point_amount)

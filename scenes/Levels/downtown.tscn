@@ -1,12 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://jp648bk6ce53"]
+[gd_scene load_steps=28 format=3 uid="uid://jp648bk6ce53"]
 
-[ext_resource type="Script" uid="uid://bestm2wxb5cf8" path="res://scripts/main.gd" id="1_o80ix"]
-[ext_resource type="PackedScene" uid="uid://dcyw50pq2wb24" path="res://scenes/Backgrounds/sky_1.tscn" id="2_2sth3"]
+[ext_resource type="Script" uid="uid://bestm2wxb5cf8" path="res://scripts/game_level.gd" id="1_o80ix"]
+[ext_resource type="PackedScene" uid="uid://crdfiww44d1ai" path="res://scenes/Backgrounds/sky_2.tscn" id="2_8du80"]
 [ext_resource type="PackedScene" uid="uid://d20vw6dyu8cnm" path="res://scenes/player.tscn" id="3_ouj8h"]
 [ext_resource type="PackedScene" uid="uid://eu482755d0ml" path="res://scenes/ui.tscn" id="4_a10e7"]
 [ext_resource type="Texture2D" uid="uid://dik66mookpkib" path="res://assets/Textures/DownTown/Evilroad1.png" id="6_ptvum"]
 [ext_resource type="Texture2D" uid="uid://cn278vwv7xki4" path="res://assets/Textures/DownTown/Evilroad2.jpg" id="7_rkl64"]
 [ext_resource type="Texture2D" uid="uid://cww3xb2sp83eq" path="res://assets/Textures/BigCity/Road2.jpg" id="8_q2hbq"]
+[ext_resource type="PackedScene" uid="uid://7m5jowu8bupr" path="res://scenes/Objects/gas_station.tscn" id="10_8du80"]
 [ext_resource type="PackedScene" uid="uid://dfnuksnyuwh5b" path="res://scenes/object_spawner.tscn" id="10_u7p3w"]
 [ext_resource type="PackedScene" uid="uid://i4omrfttutyn" path="res://scenes/Enemies/small_help.tscn" id="11_12445"]
 [ext_resource type="PackedScene" uid="uid://dtgkisjopgyi6" path="res://scenes/Enemies/long_help.tscn" id="12_hyllx"]
@@ -21,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://i7c1dx6710gl" path="res://scenes/NPCs/VTuberFriends/chibidoki_v_tuber_car.tscn" id="21_kvhw3"]
 [ext_resource type="PackedScene" uid="uid://d08lww36rwmvh" path="res://scenes/NPCs/VTuberFriends/nimi_v_tuber_car.tscn" id="22_cje3e"]
 [ext_resource type="PackedScene" uid="uid://dbwab71tgcmou" path="res://scenes/despawn.tscn" id="23_a0i76"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l8jox"]
+plane = Plane(-1, 1, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya4ey"]
 albedo_texture = ExtResource("6_ptvum")
@@ -38,20 +42,18 @@ uv1_scale = Vector3(1, 64, 1)
 albedo_texture = ExtResource("8_q2hbq")
 uv1_scale = Vector3(1, 64, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l8jox"]
-plane = Plane(-1, 1, 0, 0)
-
 [node name="DownTown" type="Node3D"]
 script = ExtResource("1_o80ix")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("2_2sth3")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_8du80")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 24.4609, 0)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.6491, 6.39354, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 6.5, 0)
+visible = false
 fov = 35.0
 
 [node name="Player" parent="." instance=ExtResource("3_ouj8h")]
@@ -59,6 +61,24 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 
 [node name="Despawn" parent="." instance=ExtResource("23_a0i76")]
 transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, -75, 10, 0)
+
+[node name="BackBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.578414, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_l8jox")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
+
+[node name="FrontBoundry" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 136.346, 9.37162, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontBoundry"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_l8jox")
+debug_color = Color(0.985094, 0, 0.341749, 1)
+debug_fill = false
 
 [node name="UI" parent="." instance=ExtResource("4_a10e7")]
 
@@ -271,6 +291,13 @@ object_to_spawn = ExtResource("14_10xmt")
 spawn_interval = 1.5
 initial_position = Vector3(100, 0, 0)
 
+[node name="GasStationSpawner" parent="SpawnerHolder/RoadObjectSpawner" instance=ExtResource("10_u7p3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7586, 0, 52.9395)
+object_to_spawn = ExtResource("10_8du80")
+spawn_interval = 60.0
+initial_position = Vector3(100, 2, 0)
+random_z_axis = false
+
 [node name="BuildingSpawners" type="Node" parent="SpawnerHolder"]
 
 [node name="ElectricTotemSpawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
@@ -305,7 +332,7 @@ initial_position = Vector3(100, 6.5, -8.5)
 random_z_axis = false
 rotate_by = 90.0
 
-[node name="SideRoadSpawmer" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
+[node name="SideRoadSpawner" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
 object_to_spawn = ExtResource("21_8du80")
 spawn_interval = 20.0
@@ -313,7 +340,7 @@ initial_position = Vector3(80, 10, 25)
 random_z_axis = false
 rotate_by = -45.0
 
-[node name="SideRoadSpawmer2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
+[node name="SideRoadSpawner2" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
 object_to_spawn = ExtResource("21_8du80")
 spawn_interval = 60.0
@@ -321,7 +348,7 @@ initial_position = Vector3(80, 10, 25)
 random_z_axis = false
 rotate_by = 225.0
 
-[node name="SideRoadSpawmer3" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
+[node name="SideRoadSpawner3" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
 object_to_spawn = ExtResource("21_8du80")
 spawn_interval = 20.0
@@ -329,28 +356,10 @@ initial_position = Vector3(80, 10, -25)
 random_z_axis = false
 rotate_by = 90.0
 
-[node name="SideRoadSpawmer4" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
+[node name="SideRoadSpawner4" parent="SpawnerHolder/BuildingSpawners" instance=ExtResource("10_u7p3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8851, 0, 45.0377)
 object_to_spawn = ExtResource("21_8du80")
 spawn_interval = 60.0
 initial_position = Vector3(80, 10, -25)
 random_z_axis = false
 rotate_by = 90.0
-
-[node name="BackBoundry" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.578414, 9.37162, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackBoundry"]
-transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_l8jox")
-debug_color = Color(0.985094, 0, 0.341749, 1)
-debug_fill = false
-
-[node name="FrontBoundry" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 136.346, 9.37162, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontBoundry"]
-transform = Transform3D(1.4, 0, 0, 0, -1.4, 1.22392e-07, 0, -1.22392e-07, -1.4, 1.90735e-06, -39.0767, 0)
-shape = SubResource("WorldBoundaryShape3D_l8jox")
-debug_color = Color(0.985094, 0, 0.341749, 1)
-debug_fill = false
